@@ -20,4 +20,14 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+  // Function to display the current day at the top of the calendar
+  function displayCurrentDay() {
+    $("#currentDay").text(dayjs().format("dddd, MMMM D, YYYY"));
+  }
+  displayCurrentDay();
+
+  // Update time block colors every minute to handle changes in time
+  setInterval(function () {
+    updateTimeBlockColors();
+  }, 60000); // 1 minute interval
 });
