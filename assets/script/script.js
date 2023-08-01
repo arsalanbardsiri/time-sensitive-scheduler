@@ -21,12 +21,13 @@ $(function () {
       $(".container-fluid").append(timeBlock);
     }
   }
+  
   // Function to update time block colors based on current time
   function updateTimeBlockColors() {
-    const currentHour = dayjs().hour();
+    var currentHour = dayjs().hour();
 
     $(".time-block").each(function () {
-      const hour = parseInt($(this).attr("id").split("-")[1]);
+      var hour = parseInt($(this).attr("id").split("-")[1]);
       $(this).removeClass("past present future");
       if (hour < currentHour) {
         $(this).addClass("past");
@@ -37,19 +38,39 @@ $(function () {
       }
     });
   }
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
+  
+  // Function to load saved events from local storage
+  function loadSavedEvents() {
+    $(".time-block").each(function () {
+      const hour = $(this).attr("id").split("-")[1];
+      const savedEvent = localStorage.getItem(`event-${hour}`);
+      if (savedEvent) {
+        $(this).find(".description").val(savedEvent);
+      }
+    });
+  }
+  
   // TODO: Add code to display the current date in the header of the page.
   // Function to display the current day at the top of the calendar
   function displayCurrentDay() {
     $("#currentDay").text(dayjs().format("dddd, MMMM D, YYYY"));
   }
 
+  // Event listener to handle saving events when the save button is clicked
+  $(".container-fluid").on("click", ".saveBtn", function () {
+    var hour = $(this).closest(".time-block").attr("id").split("-")[1];
+    var eventText = $(this).prev(".description").val();
+    saveEvent(hour, eventText);
+  });
+
+  function saveEvent(hour, eventText) {
+    localStorage.setItem(`event-${hour}`, eventText);
+  }
+  
+
   renderTimeBlocks();
   updateTimeBlockColors();
+  loadSavedEvents();
   displayCurrentDay();
 
   // Update time block colors every minute to handle changes in time
