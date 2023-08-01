@@ -5,10 +5,10 @@ $(function () {
   function renderTimeBlocks() {
     var businessHours = 9; // Start at 9am
     var totalHours = 9; // 9am to 5pm
-  
+
     for (let i = 0; i < totalHours; i++) {
       var hour = businessHours + i;
-      var formattedHour = dayjs().hour(hour).format('h A');
+      var formattedHour = dayjs().hour(hour).format("h A");
       var timeBlock = `
         <div id="hour-${hour}" class="row time-block">
           <div class="col-2 col-md-1 hour text-center py-3">${formattedHour}</div>
@@ -21,11 +21,22 @@ $(function () {
       $(".container-fluid").append(timeBlock);
     }
   }
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
+  // Function to update time block colors based on current time
+  function updateTimeBlockColors() {
+    const currentHour = dayjs().hour();
+
+    $(".time-block").each(function () {
+      const hour = parseInt($(this).attr("id").split("-")[1]);
+      $(this).removeClass("past present future");
+      if (hour < currentHour) {
+        $(this).addClass("past");
+      } else if (hour === currentHour) {
+        $(this).addClass("present");
+      } else {
+        $(this).addClass("future");
+      }
+    });
+  }
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -38,6 +49,7 @@ $(function () {
   }
 
   renderTimeBlocks();
+  updateTimeBlockColors();
   displayCurrentDay();
 
   // Update time block colors every minute to handle changes in time
