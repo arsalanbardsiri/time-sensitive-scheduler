@@ -20,17 +20,19 @@ Welcome to the Work Day Scheduler! This web application is designed to help you 
 
 ## User Story
 
-As a coding boot camp student, I want to take a timed quiz on JavaScript fundamentals that stores high scores, so that I can gauge my progress compared to my peers.
+As an employee with a busy schedule, I want to add important events to a daily planner so that I can manage my time effectively.
 
 ## Acceptance Criteria
 
-The Code Quiz application should meet the following criteria:
+The Work Day Scheduler application should meet the following criteria:
 
-1. When the user clicks the "Start" button, a timer starts, and the user is presented with the first question.
-2. After answering a question, the user is presented with the next question until all questions are answered or the timer reaches 0.
-3. If the user answers a question incorrectly, time is subtracted from the clock.
-4. When the game is over, the user can save their initials and score.
-5. The application should have a clean, polished, and responsive user interface.
+1. When the user opens the scheduler, the current day is displayed at the top of the calendar.
+2. The scheduler should present time blocks for standard business hours (9 am – 5 pm).
+3. Each time block should be color-coded to indicate whether it is in the past, present, or future.
+4. The user should be able to enter an event by clicking into a time block.
+5. The user should be able to save the event by clicking the "Save" button for that time block.
+6. Saved events should persist even after the page is refreshed.
+
 
 ## Demo
 
