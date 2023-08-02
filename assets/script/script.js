@@ -42,8 +42,8 @@ $(function () {
   // Function to load saved events from local storage
   function loadSavedEvents() {
     $(".time-block").each(function () {
-      const hour = $(this).attr("id").split("-")[1];
-      const savedEvent = localStorage.getItem(`event-${hour}`);
+      var hour = $(this).attr("id").split("-")[1];
+      var savedEvent = localStorage.getItem(`event-${hour}`);
       if (savedEvent) {
         $(this).find(".description").val(savedEvent);
       }
