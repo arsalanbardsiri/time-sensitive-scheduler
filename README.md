@@ -11,6 +11,7 @@ Welcome to the Work Day Scheduler! This web application is designed to help you 
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
 - [Demo](#demo)
+- [Deployment](#deployment)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
