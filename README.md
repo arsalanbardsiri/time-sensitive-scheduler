@@ -37,9 +37,9 @@ The Work Day Scheduler application should meet the following criteria:
 
 ## Demo
 
-Here's a short demo showcasing the functionality of the Code Quiz:
+Here's a short demo showcasing the functionality of the Work Day Scheduler:
 
-![Code Quiz Demo](./assets/visuals/demo.gif)
+![Work Day Scheduler](./assets/visuals/demo.gif)
 
 ## Deployment
 
